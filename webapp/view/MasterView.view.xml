@@ -1,0 +1,63 @@
+<mvc:View controllerName="app.splitapp.controller.MasterView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="List View">
+		<headerContent>
+				<Button icon="sap-icon://sort" press="onSort"></Button>
+			<Button icon="sap-icon://action" tooltip="Share" 
+			press="onDetailView"/>
+			
+		
+		</headerContent>
+		<subHeader>
+			<OverflowToolbar>
+				<SearchField search="onSeach" liveChange="onSeach"/>
+			</OverflowToolbar>
+		</subHeader>
+		<content>
+			<List items="{ToolModel>/toolListSet}" id="idListCtrl" mode="SingleSelectMaster" selectionChange="onItemSelect">
+				<items>
+					<ObjectListItem icon="{ToolModel>image}" title="{ToolModel>toolsName}"
+					intro="{ToolModel>uses}" number="{ToolModel>price} {ToolModel>unit}" numberState="Error"
+					numberUnit="{ToolModel>unit}">
+						<attributes>
+							<ObjectAttribute text="{ToolModel>weight}" title="weight"></ObjectAttribute>
+							<ObjectAttribute text="{ToolModel>warranty}" title="warranty"></ObjectAttribute>
+						</attributes>
+						<firstStatus>
+								<ObjectStatus text="{ToolModel>availability}" title="availability" state="Error"></ObjectStatus>
+							</firstStatus>
+					</ObjectListItem>
+					
+					
+					<!--<StandardListItem-->
+					<!--info="for cutting walls" infoState="Error" title="Angle Grinder"></StandardListItem>-->
+					<!--<CustomListItem>-->
+					<!--	<content>-->
+					<!--		<Label text="Angle Grinder"></Label>-->
+					<!--		<Input width="200px"></Input>-->
+					<!--	</content>-->
+					<!--</CustomListItem>-->
+					<!--<DisplayListItem label="angle grinder" value="Rs.2000"></DisplayListItem>-->
+				 <!--  <FeedListItem icon="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMVFhUXFxcXFxgXGBcVFxcXFRgXFhUWFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGi0fHyUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAO0A1QMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAEAAEDBQYCBwj/xABAEAABAwIEAwUGBAMHBAMAAAABAAIDBBEFEiExBkFRImFxgZEHEzKhscFCUtHwFSOSFBYkU4Lh8TNDYnJUY8L/xAAZAQADAQEBAAAAAAAAAAAAAAAAAQIDBAX/xAAkEQACAgEEAgMBAQEAAAAAAAAAAQIRAxIhMVETQQQiYTJCcf/aAAwDAQACEQMRAD8A9iSSTXVkjpJkroAdJNdcuKYDSnRVvNHO2VdUyNYC5xAA1JKTAs4Toh8VxSOnYXyODQOui84x/wBpuVpbTN12zvGg8G7krzbF8dkqH5pXuee86DwGwToVnqWK+1iGxEEby6+77BtuexusLinG1VI5xEj2NI2DnH0JNwssHA6hp6LmOV17ZDbr0TsQZUY7KR2pJCeeYk379UJBiLyey51+gJ+SUjbjl9/JBzMkadPlofklY6NNhPFdVERlke5rdQxxJG/K506aLbUftSIc02fl/Ex4vb/1fv63XjsU7r6k+l1OasA2N0WKj6FovaDTvLXZxlJs64LS2/MjnbTULYU9Q14u1wcOo1XycK0DUeivMC4xmp3Nc17rN5A2Gv75p7AfTQKdYnhrjBtU1jgLOb2ZG823tlfb8pNh5rW0lQH3IOg+4B+6Q7CUk10rpDHSTXTXTA5kcqytejah2iz9dUaoJZE5JSRi4SQI1KRTJykWMnTJIAdcOXSYpgcFeOe1PiomU0sZcAw9uxtc22Nui9C444oZQwEnWV4Iib3/AJj/AOIXzpWVLnOLtXPe4lzju4nW6BHRk3c4gHl/sFH/AGgn4G3I66+fQKANtvqefd3eK6M19Dt0G3n1SsZy+d9rAlzudtteikDpQNX+QAPqeSIJ2ta1uWn/ACuTN+EAeG/rZIKK2Uvvrcn1UjQ53d6hEz5/xODR0aEwkZa1z57lAEApxzd80xh6An5qQvFuY6W+5XTXG1ybeP6J7CIXRN5uPhcKKSMA6XRL5OeUO8fsFFFBmu7QAC4QBr+C8XLJGnQOyMZbUl4DxfTnovcuHHm81z8RZJb8pkbq3ysF844HVe6ka+17EEDlp/wvbeC+JY5GODS1073D+Xchx/8AI3Gw6qvQjfpJgkpKHTOKSjeUwAq2WwWcmNyVZYtPYKkbUA7FTKSQlFssYZLBJBifvSU60PQzcJJrprrQB06a6ZAHShq6gRsc9xsGguJOwA1JKkuvPvbNjTYqRtOH2klcCQP8phu6/cSALc0CPMOL8bfW1LpCbA9lg/LGOQ6E7nyWemqGtGVu9t+fhfkmEm/U3t57/vuQjIiSAOaTY0giKnc8dkaAfvzWjw7hLsh77kkbd61nDWBNyNuOi2cGGt002XBl+Q7qJ6OH40UrkedQ8EA2JJHcFZw8Bs2sfHmvRIaUW5KZkCweTI/Z0LHjXowEHs8hHK/ioaj2fxE3a237716WIQuXQpap9jrH0eSz+zffK4+f2QMns3lto/n+yvZxCExgCpZcq9kvFifo8RrOApWNzEg2VFV4S9rQOVxy11X0DXUeZuXruszVcNhz7nUcu5bY/kNf0YZPjRf8njTW5XXI0+wR2EYm+OQOYbOa+7Hc26jn0Vlxvhron3tla428lmKd17gbA+q7oT1Kzz8kNDo+oMAxR80bXPA1a03boCCN8p21uFahywHsmxQT0+Vw7cRtm5m/MrfF1lTJR0SgK2rABXNbWgBY7GsVJuAonNRRcYuTpDYzigJIVVBMVwyIuNyjoogFwzyNuzuhiUVR015STmLokp1MelHoUVQCpgVncEc+wzbrQM2Xpnmo7STJJjHXzz7VqsyYlOHahmWNo7g0H7kr6GC+YuMpTJiVWToffPHpoB6AJMRUZL3/AHorPB6S7xfuQYsrrADd4A6rKfBtjW56jhLbAC3SyvonKkpW2DfBW8D15r5PVjwGRIhpQ0RRDGpAzvMkSuXBK6YqOwuUwdddZeaBHDlDKwKZ6HldogoxntAw8S07xYEjUeS8bp47HL1Jv9AvoHFYczHDuK8NxinyzEd9+i6/jy9HF8qPDPQPY1KWTSgatyAu6XBsPDRek4jiYaN1497PcUMUzhf4mW9NQtVW1zpDoujJkUTlx43JhmIYuXEgKtjYSblPDTnmigyy4Zzcnud8IRgthm6LtrimDV21qkZ00pKRrElNDtG7hpwEQmTXXrHlI6JXOZOVGUMCVfM/G0eTFKwf/c4+TgCPqvpZfPHtZhyYrMdbPax+v/raw7tEMDKOfrpvfyWt4Uo3vIPIanp4LKUjbuFhrf6lev4BQiOJoA5arkzzrZHZ8bHe5b0T9R+7Iw4rAx2UvF+azWMTSX91FbM7ntYePJZ53C1YbuzC57/uudRVfZnU5y/yj1WmrIn/AAuBReQ8l4rJDX02pjfbq3tD5ao6g9oM7NHi/jfT1Q8XQLL6Z7AOST1hqDjgPtm3PRaqGqLmg+aybp0zVRtWg5myZ7tLKjxTGmxg66rM4j7QQ0dkDTn4dE43LgUqjuzfOcB8RAUTpYzpmF+WoXkVTxRUVJsxrn35NDj62REGDV3xWcz/AFWstliS5Zi8rfCPS6rTReMcc0uSd3fqPNei4Ji0jj7moH8wbHqP1WZ9plIMrH89QnD6zFk+0DGcNzWqI+hcB5n7L1KngXmXBNJ7yraeTLvPkOz816oQq+Q/sjHAvqxwmKTVIWrD2bEYK6aVy8WRMMNxdDY0rIs9klJNCklY9Jvcy5zoOnqbhTtcvVPLQRfRMkHaKCWayGJBGZeJ+3bDSJoakbPb7s9zmai/ldenOxyLOWe8bmvaxNjdUnHODmtpXRAjNdrmHo5pvr4i481k88FtZuvj5Gro8V4ajzTN7iL+q9opmWZ4BeUYdh7qarbE7Uhzdud9l67RNuCFz53btHT8dUqZVSPyuz+qHlxixsXHX4Y49XnvLuSusSwwlmip6fC/duzW5g5v1XPFr/R0tNfyCOxqQh1mxtsdGvld7x1jY25XQ1bASW+8ZlzAEB9nA36PGx8VsKGmh3LQ48zYa9UTJRNd8LAB3onOPocIS9nn8uDZbSMBDQRfpvrZemYZTENHgqeuoSG5eupsLBaTD22aB3fZZL7Pc0l9VsY3izDi94DQb7nw7h1Wd/hUTXWLddts7iegbyXoGIQ5pL+Sg/hoBByA+SE62HVqzNsq5YXFmWOINANpJAwnTYBo3XVHxE9wF7xuuQGvOaN+XcNfuCtHU00LgbtGawGovZV9bhccjGx2BA2FrAE7uW+qNGGmSZGyZkjmSBlnc+o6hUntOsIGk/mWmwbDC0EHWx0J5qg9qEBdTNaNSXgDxOg+yeN3JEZFUWZf2b0haJJSPis1veG7raZk+D4E9sbI42GzGgX2Gm5177ppoy0lrhYjknN6pWRBaY0dsKmJQsRRbAooqyFyPpjoEO8KaA6JSHEVQdk6iqCkpKLDD63RWdPV3WcnjylFUM1l6ak+GeSaU1GirKypUclRoh2uuicqRUI2yqxPBmSHNbtX38VPAJKc5XEmP8Lty3uPcrbQgeIHmhMYje9jmBxBPcvGuuT319qowHEEX+JilG2bK7yNx9VusOdsqSswIMomDUvBzXO+a6Owua9l13cUcdVNmray7bIb+xd2iJozpdFWWVWaXRXR0YbyU7W6Il1lHMbNJKHGh6rKysF3BWlK2wVVC68gc7bl9ldRtunFBOQDMztHvRETQQuKuPUWP/KVKfklVMLuJxNQg7qD+HW22Vq4Ji1PSLWwWOANCy/FFOJJKZu/+IYf6QXf/layU6LN4g5xljy/hJcfD4bj1TTq2S1bQdi1dIOxC0XO7j8LfLmVnqzPe0jszrC56+i0sliB+/FZOqqMzi7qflyWeNtyNMtKNUNG5ENmQgKclbHNQS6dG0rrhVGZWmHuu1KQ1yPU7pLudqSksmxFwKHhfZBmW53UrSt55XexxwxoJknupoZNFXOeiqaUWUW5Pc10pInNUW9+oNvDYq4zNdqNQRoVmqqS+ytMOHZ0uDYXHK/W3VROBtinWwJVSnK+N3i37hV+G7haHEWOcwggXtfNboqHDd7ojxRUv6s1FI/RFCVAQFENUWa0EMcFX4tUEMJF9PpzRebRQzsBaQdbpN3sCVMyeOcSNjy6Oyk2u3l3q7o8XAYO0D33VVX8OMdci/hfT0Q7OHyywzkN6dO4FJ8FpK/wsK3iQRyMbq4uPLZveSrynq85u3oqB+BNNgc1hrcG3zV7QQBjQ0bfvdJXQS0lm2S4SzqEFIlaKRjpGqXFAU0IOYnmbHvA2A80VK64KjoRp8Nzc6o5HwAcQTiNga3dwNz0HNZK6uMdlLpDflp5Doqdo1TikiG7ComrmUKaEJpGKrEAOKtsHf2VXyRI3CgdUm9hadyzkKdcSJKLLoo4ZrlWLRoqOkOoV1G8WWskc0AKoksSp6GW4QlcLuRGHNyhVEJFkyLS5SkrchBCGqquwsFXBxcfNEnQ4Lc0NRipe0hsZuRa5tbXvG6qcKu0ZTuNPsjoWaIR7sspHcCoSo1c7o0UEnZF0Q1V8E2iLL9FkdCCG72XL3gG3coHS2VHiBnldYWjb13d6Iv0NRt7llUYxCwlpOYjk3WyQxKnfrmItuCPoqmn4aYdXF5dzN7fREjAIx+Mj/V9U6NvHjWxaNxSA6ZiO8jRGmUWuCCO5Z52AxEWD3eTkNFhNQwkRygt5BwufC4Q7RnPHH0zV+9FkzJFV08ztA4WKND7KdROmiV7tCgG4xHG1zSe2OXjqPqp5pdFj63WZ577egC0juZTdEtVLmu7qb+qFap3DRQtTXJAXC7RduKijUgCbJ9jFqIw1mpUWVTYe7tLJmsVsHOCSd7gmQBm4obI6NQhqIgbzWydnlY8jbOTFzSJTTzcgpKKAuurWx0gjoiVJAzUBWb6XRcUlN1Wc+S4MkvZVWJyWeHcrWKtZ2KsxSLYHm0qlyUEQ1On78lZUtTcWusvR1AF2lWVO+x3WMo0dMJWi8c9p1Th3QIeBgcN0dSU/VZ7mroDlhkPS3zUDsMH4s3qVpYYgpzAE1CyfLRmqeic09kiyPjuN1bPiFkFVtAHejRQeTUBSu5qGaoslUPtuq4PubkpUVYZPUWCz0QzOJ6m/qiK+rv2RtzKFpHdpbwWxy5Jb0FyN0QAOqs37IAsTQrCIVMomaBIvTaJT3JJX6KOik7STxompm9oLPSW50iyeSkpMidFAnZTtF1KX6WTEWGiaNlyrTo48eJQVslgprq2poA1R00dgiglI2iOWCyeKIKN0llJFKpNVR2+muqfHoLFngfqtBG4Kr4gGsf+r7Jp7hRicShPxN0I+fcUNFjNuy7cLQ1dHcaLKYrQa7WWq0y5FuuDU4VjTeq0FPiQ3On75rx/+Y12hKsqbiF7fiUSxdGkcq9nrjcQGlnJpcXHIry5nFoHMWTv4vaSFj48hrrxHqZxMcyh6muFrrzb+9QO11zPxBI/RoN+/wDRUoT9ic4ejV4hjAvoVWRVbpXZI9ep5BU1LQSSu7RPetrhOGtiaAAm9MRfZlfikAZla38up6nqg4DqtDWU2bWyrJKIgrRM5ZKpEzDooJQimRkBCVIQUmdApwo2uXaAvcmsmYNUm7J2hQicnBaNOiS5bsklZaexTsfqjILBVrARuujKVfBhK2Xkc4su/wC1BUWc2Q8kr+qORxs0L6gXTsmVAJz1REU5UG8UaGKpQmLyZsnifogWylPMTmbdVFWJy3J4mKKtw8OGoCKhRojuFD2N4mFrMJAKrzw2X8xZbLEYLFcUcY6BDySS2Kjji3uZD+5p5WSHCZG9l6ILW2UL4r8ln559l+GHRh4eGwOforaj4fA5LQwUtzsrRkFgk8kmPTGPoqqLDg0bKwEambGei6e1ERSZxSxXBXM1Fdd077H6oozBdJyMqJaJVlXRrSPcCq+qaEEONmcdGQnjVkYFEafVJsSiyFt7KZjNE7Yiio49FI6O2bJLpqSVGiSKOUKFqlkF1DlWktjz3laJwUzmhRLpoWe4vKzp7E8YQ76kl4ijb7yQ7NB0He48gtVhGCFozSEOf3CzW9wvqfFaeOSVvY6IylJ7AdFQm2d3kP1XD23kV/VMsLKoZD/MKpcG2mmhw1G05UUzF1TOWMjpiKrhBQrKQX3VhMAohHdZPg0XJxHCOqIbGE/uQpooVKQ2zqGEKctAXTW2XDirM7sjcuXNUjGkrtzNE0AHE3UqSopy4XG66p27oxgWikZtbGZfVWNnCxUMk11f4jhokaRfKeTrXy+R3Cw1PidnGOSwcHFtxsSDbyWqxuStGDkoumXjCui1Dxmy696smaId7UzpCAnzqOUXSQSFDUaJIZjd0yuyQVj10SrX+61Vb/on1H6oabhqvN7QEdO0363XTHC5c7HmSK6WZrdz5Kpr8TNrN08/uriTgyvP/YP9Tf1UEnA1f/8AHP8AU39V1QxQh/0kN9mUIc+Vx3AaB4G5K9EIWG4N4dr6Wc56d3u36EhzTbod9VvzRSfl+YXLmjJzbO/BOKgioqkBSxXJKup8MlOgYfULqlwiQbt+izcXXBqpxvkqaiPRDR7rRz4S8jRv0Vc/BJ+TL+YWGiXRsskO0cZLhIwo+DC5Ruz5hSuw2T8vzCl459Mflh2isaxFxRqf+Gy/k+imbQSfl+YQscumKWWPaBHBRW1RjqCX8v0Tsw6T8v0Q8c+mHkj2iBjE0o0RwoX/AJVy/D3/AJforWOXRPljfIDTsRIap46B4/ChMWFRGz+VAZXnYXAA73ElUscuiZZY9lbxTjTKaFziRnIIY3mT18AvH45SSSdybnrr9VqcU4UxSokMksJJ6ZmgAcgLHRDO4FxDlTnxzN/VehhxqC/Tz82TW/wiw7FXMsHat7+QV1HUNcLtP+3igW8E19tYD/U39URDwliDTcQH+pv6p5cMMn4wx5pQ/UEtkTOlRsHDtYfigIPW7f1U392Kr/KPq39VwSwTizreeMlsVjSkrZvDVSP+0fUfqkp8cugU12emJJJL0ThEkkkgBJJJIASy2G1Msss8nvJRC2Z/u3XiEYbT5GSM+G5a6Rs2p2A0K1JCEgwyFkRgawCIhwLPwkPvnGvW59SgCih4pOSP+S9z5GRytY4tDy2Z5a1rA0dvKLFx/CLE7rT3VI/Ah74PEhaBkyht2ua1lrRgh1iw66OafiOqtTRs937rKMlsuUaCx5aIAA4YnfJAJZHl/vHPkZmDQRE55MI7IH4Mutr6rrAZnvEr3PLmumf7sEAZWMsywsBcEtc65ue1uiosOiaGhrAAxnu22v2WG3ZB5DQeianw2JgYGsAEd8m5y5gQbX7iUAVvF2Luggk91/1iw5Dkc8Nceywuyggdoi2awXdXxA1j2tDcwMhivmA7TGOkkNvytaw3PXRGVGEQvDw9gPvC1z7k9os+G+vKwXLsEpy4uMLC5xJJtqS5uR2ve0kIGVGHcXe9exogeM/udyNPfMdJYj8wa0OI6OB02UuF8QulLQyJzvee8e27mgNjZIIg4EDVrtXt5kH0uG4bEDcRtvmzXt+LII83jkAb4BKjw+KKwjY1tmtYLcmN+Fo7hdAii4ixV7Kymia9zI8r3TOAbkGctjpxISLgF+e1rat10Kg/jBhqnsL5JY4xFC8vcxobI8PnkkdoAS2IsJts3539Tg0EhkL4w4ytDJL37bWklrXa7C59T1XTcKh/y2nUu1F9XM92Sb7kt7PggCoqOKw0E+5edICGgjP/AImQRxBzN2u3cRyAVvhNf75hfly2e9u4dfI4tzAjkbLilwSnjy5IWNy5cthsWBzWnyDnDzRlPA1jQ1jQ1o2A21Nz8ygCRJJJACSSSQAkkkkAJJJJAH//2Q=="-->
+				 <!--  info="congrats on you upcoming moview" text="much awaited movie. precisely after 5-years " sender="karan"></FeedListItem>-->
+
+
+
+
+
+				</items>
+			</List>
+
+		</content>
+			<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Accept" type="Accept" />
+				<Button text="Reject" type="Reject" />
+				<Button text="Edit" />
+				<Button text="Delete" />
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

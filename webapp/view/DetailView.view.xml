@@ -1,0 +1,20 @@
+<mvc:View controllerName="app.splitapp.controller.DetailView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+   
+			<Page title="Detail View" showNavButton="true" 
+			navButtonPress="onListView">
+				<content>
+					<f:SimpleForm>
+						<Label text="tools Name"  design="Bold" class="bold-class" ></Label>
+							<Text text="{ToolModel>toolsName}"></Text>
+								<Label text="Weight" design="Bold"></Label>
+							<Text text="{ToolModel>weight}"></Text>
+								<Label text="Warranty" design="Bold"></Label>
+							<Text text="{ToolModel>warranty}"></Text>
+					</f:SimpleForm>
+					
+				</content>
+			</Page>
+</mvc:View>
