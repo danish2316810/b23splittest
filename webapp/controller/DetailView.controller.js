@@ -16,6 +16,13 @@ sap.ui.define([
            let sPath="ToolModel>/toolListSet/"+index
            let oView=this.getView()
            oView.bindElement(sPath)
+
+        
+        
+
+
+
+
       },
 
         onListView:function(){

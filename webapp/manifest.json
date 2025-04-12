@@ -81,7 +81,7 @@
         {
           "name": "RouteMaster",
           "pattern": "",
-          "target":  "TargetMasterView"
+          "target":  ["TargetMasterView","TargetEmpty"]
         },{
           "name": "RouteDetail",
           "pattern": "view2/{index}",
@@ -92,12 +92,22 @@
       "targets": {
         "TargetMasterView": {
           "id": "MasterView",
-          "name": "MasterView"
+          "controlAggregation": "masterPages",
+          "name": "MasterView",
+          "viewLevel":1
+        },
+        "TargetEmpty":{
+          "id":"idEmpty",
+          "name": "EmptyView",
+          "controlAggregation": "detailPages",
+          "viewLevel":1
         },
         
         "TargetDetail":{
             "id": "idDetail",
-          "name": "DetailView"
+          "name": "DetailView",
+          "controlAggregation": "detailPages",
+          "viewLevel":2
           }
       
       }

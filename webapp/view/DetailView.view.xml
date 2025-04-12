@@ -14,6 +14,64 @@
 								<Label text="Warranty" design="Bold"></Label>
 							<Text text="{ToolModel>warranty}"></Text>
 					</f:SimpleForm>
+
+				<IconTabBar>
+				    <items>
+
+					  <IconTabFilter icon="sap-icon://information">
+					       <VBox >
+						      <HBox >
+									<Label text="tools Name"  design="Bold" class="bold-class" ></Label>
+									<Text text="{ToolModel>toolsName}"></Text>
+							  </HBox>
+							  <HBox >
+									<Label text="Weight" design="Bold"></Label>
+									<Text text="{ToolModel>weight}"></Text>
+							  </HBox>
+							  <HBox >
+									<Label text="Warranty" design="Bold"></Label>
+									<Text text="{ToolModel>warranty}"></Text>
+							  </HBox>
+							  
+						   </VBox>
+					  </IconTabFilter>
+
+					  <IconTabFilter icon="sap-icon://supplier">
+					      <Table items="{ToolModel>/supplierSet}" id="idMTable">
+						     <columns>
+							    <Column>
+								   <Text text="Tools Name"></Text>
+								</Column>
+								<Column>
+								 	<Text text="supplierName"></Text>
+								 </Column>
+								<Column>
+								  	<Text text="contact"></Text>
+								</Column>
+								<Column>
+								  	<Text text="location"></Text>
+								</Column>
+							 </columns>
+
+                             <ColumnListItem>
+							      <cells>
+								  	<Text text="{ToolModel>toolsName}"></Text>
+									<Text text="{ToolModel>supplierName}"></Text>
+									<Text text="{ToolModel>contact}"></Text>
+									<Text text="{ToolModel>location}"></Text>
+								  </cells>
+							 </ColumnListItem>
+						  </Table>
+
+
+					  </IconTabFilter>
+					</items>
+				</IconTabBar>
+
+
+
+
+
 					
 				</content>
 			</Page>
