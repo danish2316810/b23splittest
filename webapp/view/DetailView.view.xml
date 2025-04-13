@@ -1,7 +1,8 @@
 <mvc:View controllerName="app.splitapp.controller.DetailView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:f="sap.ui.layout.form">
+    xmlns:f="sap.ui.layout.form"
+	xmlns:comp="sap.ui.comp.filterbar">
    
 			<Page title="Detail View" showNavButton="true" 
 			navButtonPress="onListView">
@@ -36,7 +37,28 @@
 						   </VBox>
 					  </IconTabFilter>
 
+					  <!-- <comp:FilterBar>
+					       <comp:filterItems>
+						      <comp:FilterItem>
+							  
+							  </compFilterItem>
+
+
+						   
+						   </comp:filterItems>
+					  </comp:FilterBar> -->
+
+
+
+
+
+             
+
 					  <IconTabFilter icon="sap-icon://supplier">
+					  <Label text="Supplier" ></Label>
+					  <Input id="idInptSupp" width="200px" liveChange="onFilter"></Input>
+					  <Label text="City" ></Label>
+					   <Input id="idInptCity" width="200px" liveChange="onFilter"></Input>
 					      <Table items="{ToolModel>/supplierSet}" id="idMTable">
 						     <columns>
 							    <Column>
@@ -52,15 +74,19 @@
 								  	<Text text="location"></Text>
 								</Column>
 							 </columns>
-
-                             <ColumnListItem>
-							      <cells>
-								  	<Text text="{ToolModel>toolsName}"></Text>
-									<Text text="{ToolModel>supplierName}"></Text>
-									<Text text="{ToolModel>contact}"></Text>
-									<Text text="{ToolModel>location}"></Text>
-								  </cells>
-							 </ColumnListItem>
+							<items>
+							     <ColumnListItem>
+									<cells>
+										<Text text="{ToolModel>toolsName}"></Text>
+										<Input value="{ToolModel>supplierName}"
+										       showValueHelp="true"
+											   valueHelpRequest="onF4Help"></Input>
+										<Text text="{ToolModel>contact}"></Text>
+										<Text text="{ToolModel>location}"></Text>
+									</cells>
+								 </ColumnListItem>
+							</items>
+                            
 						  </Table>
 
 
